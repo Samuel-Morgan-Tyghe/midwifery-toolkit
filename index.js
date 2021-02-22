@@ -23,12 +23,49 @@ var animation = [
   "wobble",
   "jello",
   "heartBeat",
+  "bounceIn",
+  "bounceInDown",
+  "bounceInLeft",
+  "bounceInRight",
+  "bounceInUp",
+  "fadeIn",
+  "fadeInDown",
+  "fadeInDownBig",
+  "fadeInLeft",
+  "fadeInLeftBig",
+  "fadeInRight",
+  "fadeInRightBig",
+  "fadeInUp",
+  "fadeInUpBig",
+  "fadeInTopLeft",
+  "fadeInTopRight",
+  "fadeInBottomLeft",
+  "fadeInBottomRight",
+  "flip",
+  "flipInX",
+  "flipInY",
+  "lightSpeedInRight",
+  "lightSpeedInLeft",
+  "rotateIn",
+  "rotateInDownLeft",
+  "rotateInDownRight",
+  "rotateInUpLeft",
+  "rotateInUpRight",
+  "hinge",
+  "jackInTheBox",
+  "rollIn",
+  "zoomIn",
+  "zoomInDown",
+  "zoomInLeft",
+  "zoomInRight",
+  "zoomInUp",
+  "slideInDown",
+  "slideInLeft",
+  "slideInRight",
+  "slideInUp",
 ];
 
-
-let colorScheme=[
-  '#b1c5b0','#638c61','#9aaab9'
-];
+let colorScheme = ["#b1c5b0", "#638c61", "#9aaab9"];
 
 var num = 0;
 let rAnimation;
@@ -37,8 +74,8 @@ function changeImage() {
   var container = document.getElementById("container");
   var len = quotes.length;
   let rNumber = Math.floor(Math.random() * Math.floor(animation.length));
-  let rnumber2 =  Math.floor(Math.random() * Math.floor(colorScheme.length))
-  let rColor = colorScheme[rnumber2]
+  let rnumber2 = Math.floor(Math.random() * Math.floor(colorScheme.length));
+  let rColor = colorScheme[rnumber2];
   // console.log(rColor);
 
   rAnimation = animation[rNumber];
@@ -46,7 +83,6 @@ function changeImage() {
   container.innerHTML = quotes[num++];
   animateCSS(container, rAnimation);
   container.style.backgroundColor = rColor;
-
 
   // container.classList.add('animate__animated', rAnimation);
   // requestAnimationFrame(() => {
@@ -61,7 +97,7 @@ window.onload = function () {
   changeImage();
 };
 
-const animateCSS = (element, animation, prefix = 'animate__') =>
+const animateCSS = (element, animation, prefix = "animate__") =>
   // We create a Promise and return it
   new Promise((resolve, reject) => {
     const animationName = `${prefix}${animation}`;
@@ -73,10 +109,10 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
     function handleAnimationEnd(event) {
       event.stopPropagation();
       node.classList.remove(`${prefix}animated`, animationName);
-      resolve('Animation ended');
+      resolve("Animation ended");
     }
 
-    node.addEventListener('animationend', handleAnimationEnd, {once: true});
+    node.addEventListener("animationend", handleAnimationEnd, { once: true });
   });
 
 // function start() {
